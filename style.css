@@ -6,3 +6,29 @@ body {
     -o-background-size: cover;
     background-size: cover;
 }
+
+main {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1em;
+}
+
+.center {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.current_time {
+    align-self: center;
+    font-size: 3rem;
+    font-size: 1050%;
+    letter-spacing: -5px;
+}
+
+.current_time > span {
+    text-shadow: 0 0 20px #000000;
+}
