@@ -6,7 +6,6 @@
     -webkit-box-sizing: border-box !important;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     -webkit-tap-highlight-color: transparent;
-    overflow: hidden;
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -19,12 +18,13 @@
 }
 body {
     background-color: #f2f4fb;
-    color: #a1a1a1 !important;
+    color: #ffffff !important;
     font: 400 16px/24px Roboto, Noto Sans, Noto Sans JP, Noto Sans KR, Noto Naskh Arabic, Noto Sans Thai,
         Noto Sans Hebrew, Noto Sans Bengali, sans-serif !important;
     word-wrap: break-word;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow: hidden;
 }
 
 a,
