@@ -41,3 +41,12 @@ textarea {
     outline: none;
     overflow: hidden;
 }
+
+/* extras */
+.lhinit {
+    line-height: initial;
+}
+
+.text-center {
+    text-align: center;
+}
