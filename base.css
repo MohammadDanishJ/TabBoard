@@ -13,6 +13,53 @@
     -webkit-justify-content: center;
     justify-content: center;
 }
+.fl-j-sb {
+    justify-content: space-between;
+}
+
+.fl-j-sa {
+    justify-content: space-around;
+}
+
+.fl-j-se {
+    justify-content: space-evenly;
+}
+
+.fl-j-fs {
+    justify-content: flex-start;
+}
+
+.fl-j-fe {
+    justify-content: flex-end;
+}
+
+.fl-a-fs {
+    align-items: flex-start;
+}
+
+.fl-a-fe {
+    align-items: flex-end;
+}
+
+.fl-d-row {
+    flex-direction: row;
+}
+
+.fl-d-row-rev {
+    flex-direction: row-reverse;
+}
+
+.fl-d-col {
+    flex-direction: column;
+}
+
+.fl-d-col-rev {
+    flex-direction: column-reverse;
+}
+
+.fl-w-w {
+    flex-wrap: wrap;
+}
 
 /* base for height and width */
 .w-100 {
