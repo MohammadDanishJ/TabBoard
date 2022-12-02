@@ -1,4 +1,8 @@
 /* main styling for UI */
+* {
+    text-shadow: 0 2px 20px #000000a6;
+    line-height: 1;
+}
 body {
     background: no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -24,11 +28,14 @@ main {
 
 .current_time {
     align-self: center;
-    font-size: 3rem;
-    font-size: 1050%;
+}
+
+.current_time > span.time {
+    font-size: 13rem;
     letter-spacing: -5px;
 }
 
-.current_time > span {
-    text-shadow: 0 0 20px #000000a6;
+.current_time > span.date {
+    padding-top: 0rem;
+    font-size: 2rem;
 }
