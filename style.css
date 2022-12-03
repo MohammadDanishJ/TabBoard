@@ -19,6 +19,12 @@ main {
     padding: 1em;
 }
 
+.top {
+    height: 60px;
+    flex: 0 0 auto;
+    display: flex;
+    align-items: flex-start;
+}
 .center {
     flex: 1 1 auto;
     display: flex;
@@ -38,4 +44,23 @@ main {
 .current_time > span.date {
     padding-top: 0rem;
     font-size: 2rem;
+}
+
+.weather-header {
+    align-items: center;
+    display: flex;
+}
+.weather-header > img {
+    height: 60px;
+}
+
+.weather-temperature {
+    font-size: 2.5rem;
+}
+
+.weather-city {
+    font-size: 1em;
+    margin-top: -10px;
+    text-align: right;
+    margin-right: 0.4rem;
 }

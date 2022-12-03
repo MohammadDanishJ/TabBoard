@@ -1,4 +1,5 @@
 const currentTimeEl = document.getElementById('currentTimeEl')
+const weather = document.getElementById('weather')
 
 fetch('https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&query=nature')
     .then(res => res.json())
@@ -21,3 +22,29 @@ setInterval(() => {
     currentTimeEl.querySelector('span.time').textContent = currentTime.replace("AM", "").replace("PM", "")
     currentTimeEl.querySelector('span.date').textContent = `${weekday[date.getDay()]}, ${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`
 }, 1000)
+
+navigator.geolocation.getCurrentPosition(position => {
+    // prettier-ignore
+    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&appid=b186569fa5afd008ec39a6e0248dccb3`)
+        .then(res => {
+            if (!res.ok) {
+                throw Error('Weather data not available.')
+            }
+            return res.json()
+        })
+        .then(data => {
+            console.log(data)
+            const iconURL = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
+            const city = data.name
+            const temperature = Math.round(data.main.temp)
+
+            weather.innerHTML = `
+                    <div class="weather-header">
+                        <img src=${iconURL} />
+                        <p class="weather-temperature">${temperature}&deg;</p>
+                    </div>
+                    <p class="weather-city">${city}</p>
+                `
+        })
+        .catch(err => console.error(err))
+})
