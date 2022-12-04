@@ -31,6 +31,11 @@ main {
     flex-direction: column;
     justify-content: center;
 }
+.bottom {
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+}
 
 .current_time {
     align-self: center;
@@ -63,4 +68,9 @@ main {
     margin-top: -10px;
     text-align: right;
     margin-right: 0.4rem;
+}
+
+#imageAuthor {
+    opacity: 0.8;
+    font-size: 0.8125rem;
 }

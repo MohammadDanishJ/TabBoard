@@ -1,12 +1,14 @@
 const currentTimeEl = document.getElementById('currentTimeEl')
 const weather = document.getElementById('weather')
+const imageAuthorEl = document.getElementById('imageAuthor')
 
 fetch('https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&query=nature')
     .then(res => res.json())
     .then(data => {
+        console.log(data)
         let backgroundImage = data.urls.regular
         document.body.style.backgroundImage = `url(${backgroundImage})`
-        const imageAuthor = `By: ${data.user.name}`
+        imageAuthorEl.innerHTML = `Author: <strong>${data.user.name}</strong>`
     })
     .catch(err => {
         document.body.style.backgroundImage =
