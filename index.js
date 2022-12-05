@@ -5,7 +5,6 @@ const imageAuthorEl = document.getElementById('imageAuthor')
 fetch('https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&query=nature')
     .then(res => res.json())
     .then(data => {
-        console.log(data)
         let backgroundImage = data.urls.regular
         document.body.style.backgroundImage = `url(${backgroundImage})`
         imageAuthorEl.innerHTML = `Author: <strong>${data.user.name}</strong>`
@@ -35,7 +34,6 @@ navigator.geolocation.getCurrentPosition(position => {
             return res.json()
         })
         .then(data => {
-            console.log(data)
             const iconURL = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
             const city = data.name
             const temperature = Math.round(data.main.temp)
