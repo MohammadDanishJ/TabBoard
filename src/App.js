@@ -31,7 +31,7 @@ const App = () => {
 
     navigator.geolocation.getCurrentPosition(position => {
       // prettier-ignore
-      fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&appid=b186569fa5afd008ec39a6e0248dccb3`)
+      fetch(`${process.env.REACT_APP_WEATHER_API_URL}?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&appid=${process.env.REACT_APP_WEATHER_API_KEY}`)
         .then(res => {
           if (!res.ok) {
             throw Error('Weather data not available.')
@@ -40,7 +40,7 @@ const App = () => {
         })
         .then(data => {
           console.log(data)
-          const iconURL = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
+          const iconURL = `${process.env.REACT_APP_WEATHER_API_ICON_URL}${data.weather[0].icon}@2x.png`
           const city = data.name
           const temperature = Math.round(data.main.temp)
 
