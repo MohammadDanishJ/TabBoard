@@ -1,10 +1,12 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+import WeatherBadge from './Components/WeatherBadge';
 import './style.css'
 
 const App = () => {
+  const [data, setData] = useState([]);
+
   useEffect(() => {
     const currentTimeEl = document.getElementById('currentTimeEl')
-    const weather = document.getElementById('weather')
     const imageAuthorEl = document.getElementById('imageAuthor')
 
     fetch('https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&query=nature')
@@ -29,38 +31,30 @@ const App = () => {
       currentTimeEl.querySelector('span.date').textContent = `${weekday[date.getDay()]}, ${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`
     }, 1000)
 
-    navigator.geolocation.getCurrentPosition(position => {
-      // prettier-ignore
-      fetch(`${process.env.REACT_APP_WEATHER_API_URL}?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&appid=${process.env.REACT_APP_WEATHER_API_KEY}`)
-        .then(res => {
-          if (!res.ok) {
-            throw Error('Weather data not available.')
-          }
-          return res.json()
-        })
-        .then(data => {
-          console.log(data)
-          const iconURL = `${process.env.REACT_APP_WEATHER_API_ICON_URL}${data.weather[0].icon}@2x.png`
-          const city = data.name
-          const temperature = Math.round(data.main.temp)
+  }, [])
 
-          weather.innerHTML = `
-                      <div class="weather-header">
-                          <img src=${iconURL} />
-                          <p class="weather-temperature">${temperature}&deg;</p>
-                      </div>
-                      <p class="weather-city">${city}</p>
-                  `
-        })
-        .catch(err => console.error(err))
-    })
+  useEffect(() => {
+    const fetchData = async () => {
+      navigator.geolocation.getCurrentPosition(async function (position) {
+        const lat = position.coords.latitude;
+        const long = position.coords.longitude;
+        const response = await fetch(`${process.env.REACT_APP_WEATHER_API_URL}?lat=${lat}&lon=${long}&units=metric&appid=${process.env.REACT_APP_WEATHER_API_KEY}`)
+        const data = await response.json()
+        setData(data)
+      }
+      );
+    }
+    fetchData();
   }, [])
 
   return (
     <main>
       <div className="top fl-j-fe">
-        <div id="weather">
-        </div>
+        {(typeof data.main != 'undefined') ? (
+          <WeatherBadge weatherData={data} />
+        ) : (
+          <div></div>
+        )}
       </div>
       <div className="center">
         <div id="currentTimeEl" className="current_time fl fl-c fl-d-col p-rel lhinit">
