@@ -51,7 +51,9 @@ const App = () => {
     <main>
       <div className="top fl-j-fe">
         {(typeof data.main != 'undefined') ? (
-          <WeatherBadge weatherData={data} />
+          <>
+            <WeatherBadge weatherData={data} />
+          </>
         ) : (
           <div></div>
         )}

@@ -51,6 +51,8 @@ main {
 }
 .weather {
     padding: 10px 20px 10px 10px;
+    color: #fff;
+    text-transform: none;
 }
 .weather-header {
     align-items: center;
