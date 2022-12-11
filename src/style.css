@@ -1,0 +1,78 @@
+/* main styling for UI */
+* {
+    text-shadow: 0 2px 20px #000000a6;
+    line-height: 1;
+}
+body {
+    background: no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+main {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.top {
+    height: 60px;
+    flex: 0 0 auto;
+    display: flex;
+    align-items: flex-start;
+}
+.center {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.bottom {
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.current_time {
+    align-self: center;
+}
+
+.current_time > span.time {
+    font-size: 13rem;
+    letter-spacing: -5px;
+}
+
+.current_time > span.date {
+    padding-top: 0rem;
+    font-size: 2rem;
+}
+#weather {
+    padding: 10px 20px 10px 10px;
+}
+.weather-header {
+    align-items: center;
+    display: flex;
+}
+.weather-header > img {
+    height: 60px;
+}
+
+.weather-temperature {
+    font-size: 2.5rem;
+}
+
+.weather-city {
+    font-size: 1em;
+    margin-top: -10px;
+    text-align: right;
+    margin-right: 0.4rem;
+}
+
+#imageAuthor {
+    opacity: 0.8;
+    font-size: 0.8125rem;
+    padding: 0.5rem 1.5rem;
+}
