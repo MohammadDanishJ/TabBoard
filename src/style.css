@@ -49,7 +49,7 @@ main {
     padding-top: 0rem;
     font-size: 2rem;
 }
-#weather {
+.weather {
     padding: 10px 20px 10px 10px;
 }
 .weather-header {
