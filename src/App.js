@@ -4,6 +4,7 @@ import './style.css'
 
 const App = () => {
   const [data, setData] = useState([]);
+  const [weatherType, setWeatherType] = useState('auto');
 
   useEffect(() => {
     const currentTimeEl = document.getElementById('currentTimeEl')
@@ -33,8 +34,8 @@ const App = () => {
 
   }, [])
 
-  useEffect(() => {
-    const fetchData = async () => {
+  const setWeather = async (city) => {
+    if (city === undefined) {
       navigator.geolocation.getCurrentPosition(async function (position) {
         const lat = position.coords.latitude;
         const long = position.coords.longitude;
@@ -43,19 +44,31 @@ const App = () => {
         setData(data)
       }
       );
+    } else {
+      try {
+        const response = await fetch(`${process.env.REACT_APP_WEATHER_API_URL}?q=${city}&units=metric&appid=${process.env.REACT_APP_WEATHER_API_KEY}`)
+        const data = await response.json()
+        setData(data)
+      } catch (err) {
+        // console.log(err)
+      }
     }
-    fetchData();
-  }, [])
+  }
+
+  useEffect(() => {
+
+    setWeather();
+  }, [weatherType])
 
   return (
     <main>
       <div className="top fl-j-fe">
         {(typeof data.main != 'undefined') ? (
           <>
-            <WeatherBadge weatherData={data} />
+            <WeatherBadge weatherData={data} setWeatherType={setWeatherType} weatherMethod={(e) => setWeather(e)} />
           </>
         ) : (
-          <div></div>
+          <WeatherBadge noLocation weatherData={data} setWeatherType={setWeatherType} weatherMethod={(e) => setWeather(e)} />
         )}
       </div>
       <div className="center">
