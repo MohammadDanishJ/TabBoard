@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import WeatherBadge from './Components/WeatherBadge';
 import './style.css'
+import { months, weekday } from './data';
 
 const App = () => {
   const [data, setData] = useState([]);
@@ -21,8 +22,7 @@ const App = () => {
         document.body.style.backgroundImage =
           'url(http://placekitten.com/1000/1000)'
       })
-    const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
     setInterval(() => {
       const date = new Date()
       const currentTime = date.toLocaleTimeString('en-US', {
