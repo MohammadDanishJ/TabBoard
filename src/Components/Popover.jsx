@@ -18,7 +18,12 @@ export const PopoverPopup = ({ buttonData, popupData }) => {
 
   return (
     <div>
-      <Button aria-describedby={id} variant="text" onClick={handleClick}>
+      <Button
+        aria-describedby={id}
+        variant="text"
+        onClick={handleClick}
+        className="weather-button"
+      >
         {buttonData}
       </Button>
       <Popover
