@@ -78,8 +78,11 @@ main {
     font-size: 0.8125rem;
     padding: 0.5rem 1.5rem;
 }
-
+.weather-button {
+    transition: all 0.2s ease-in-out;
+}
 .weather-button:hover {
-    background-color: rgba(0, 0, 0, 0.1) !important;
+    background-color: rgba(0, 0, 0, 0.2) !important;
+    backdrop-filter: blur(4px) !important;
     border-radius: 0;
 }
